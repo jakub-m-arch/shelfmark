@@ -1,0 +1,9 @@
+{
+  "id": "shelfmark",
+  "name": "Shelfmark",
+  "version": "1.0.0",
+  "minAppVersion": "1.5.0",
+  "description": "A personal library: search for books, download covers, track reading status, progress, loans and wishlists, with optional suggestions from Claude Code.",
+  "author": "Jakub Malinowski",
+  "isDesktopOnly": false
+}

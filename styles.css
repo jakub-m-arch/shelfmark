@@ -1,0 +1,1964 @@
+/* ---------- Library view ---------- */
+.shelfmark-view {
+  padding: var(--size-4-4);
+}
+
+.shelfmark-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-4-2);
+  align-items: center;
+  margin-bottom: var(--size-4-3);
+}
+
+.shelfmark-filter-input {
+  flex: 1 1 200px;
+  min-width: 0;
+}
+
+.shelfmark-add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--size-2-2);
+}
+
+.shelfmark-add-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.shelfmark-tabs {
+  display: flex;
+  gap: var(--size-4-1);
+  overflow-x: auto;
+  padding-bottom: var(--size-4-2);
+  margin-bottom: var(--size-4-3);
+  scrollbar-width: none;
+}
+
+.shelfmark-tab {
+  flex-shrink: 0;
+  border-radius: var(--radius-l);
+  font-size: var(--font-ui-small);
+  background: var(--background-secondary);
+  box-shadow: none;
+}
+
+.shelfmark-tab.is-active {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+.shelfmark-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: var(--size-4-5) var(--size-4-4);
+}
+
+.is-mobile .shelfmark-grid {
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: var(--size-4-4) var(--size-4-3);
+}
+
+.shelfmark-empty {
+  grid-column: 1 / -1;
+  color: var(--text-muted);
+  text-align: center;
+  padding: var(--size-4-12) 0;
+}
+
+.shelfmark-card {
+  cursor: pointer;
+  min-width: 0;
+}
+
+.shelfmark-cover {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  border-radius: var(--radius-s);
+  overflow: hidden;
+  background: var(--background-secondary);
+  box-shadow: var(--shadow-s);
+  transition: transform 120ms ease;
+}
+
+.shelfmark-card:hover .shelfmark-cover {
+  transform: translateY(-2px);
+}
+
+.shelfmark-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.shelfmark-cover.is-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--size-4-2);
+  background: linear-gradient(160deg, var(--background-modifier-hover), var(--background-secondary-alt));
+}
+
+.shelfmark-placeholder-title {
+  font-family: var(--font-text);
+  font-size: var(--font-ui-small);
+  text-align: center;
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
+}
+
+.shelfmark-status-badge {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background-primary);
+  color: var(--text-muted);
+  box-shadow: var(--shadow-s);
+}
+
+.shelfmark-status-badge svg {
+  width: 14px;
+  height: 14px;
+}
+
+.shelfmark-status-badge[data-status="reading"] { color: var(--color-blue); }
+.shelfmark-status-badge[data-status="read"] { color: var(--color-green); }
+.shelfmark-status-badge[data-status="to read"] { color: var(--color-orange); }
+.shelfmark-status-badge[data-status="abandoned"] { color: var(--color-red); }
+.shelfmark-status-badge[data-status="never"] { color: var(--text-faint); }
+
+.shelfmark-more {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: var(--background-primary);
+  border-radius: var(--radius-s);
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+
+.shelfmark-card:hover .shelfmark-more,
+.is-mobile .shelfmark-more {
+  opacity: 0.9;
+}
+
+.shelfmark-card-title {
+  margin-top: var(--size-4-2);
+  font-size: var(--font-ui-small);
+  font-weight: var(--font-semibold);
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.shelfmark-card-author {
+  font-size: var(--font-ui-smaller);
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shelfmark-stars {
+  font-size: var(--font-ui-smaller);
+  color: var(--color-yellow);
+  letter-spacing: 1px;
+}
+
+/* ---------- Search ---------- */
+.shelfmark-search-modal {
+  width: min(680px, 100%);
+}
+
+.shelfmark-search-bar {
+  display: flex;
+  gap: var(--size-4-2);
+}
+
+.shelfmark-search-bar input {
+  flex: 1;
+  min-width: 0;
+}
+
+.shelfmark-search-status {
+  margin: var(--size-4-2) 0;
+  font-size: var(--font-ui-smaller);
+  color: var(--text-muted);
+}
+
+.shelfmark-search-results {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.is-mobile .shelfmark-search-results {
+  max-height: none;
+}
+
+.shelfmark-result {
+  display: flex;
+  gap: var(--size-4-3);
+  padding: var(--size-4-2);
+  border-radius: var(--radius-m);
+  cursor: pointer;
+}
+
+.shelfmark-result:hover {
+  background: var(--background-modifier-hover);
+}
+
+.shelfmark-result-thumb {
+  flex: 0 0 48px;
+  height: 72px;
+  border-radius: var(--radius-s);
+  overflow: hidden;
+  background: var(--background-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-faint);
+}
+
+.shelfmark-result-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.shelfmark-result-info {
+  min-width: 0;
+}
+
+.shelfmark-result-title {
+  font-weight: var(--font-semibold);
+}
+
+.shelfmark-result-subtitle,
+.shelfmark-result-author {
+  font-size: var(--font-ui-small);
+  color: var(--text-muted);
+}
+
+.shelfmark-result-meta {
+  font-size: var(--font-ui-smaller);
+  color: var(--text-faint);
+}
+
+.shelfmark-source-badge {
+  display: inline-block;
+  margin-top: 2px;
+  font-size: 10px;
+  padding: 0 6px;
+  border-radius: var(--radius-s);
+  background: var(--background-modifier-border);
+  color: var(--text-muted);
+}
+
+/* ---------- Adding books ---------- */
+.shelfmark-add-head {
+  display: flex;
+  gap: var(--size-4-4);
+  align-items: flex-start;
+}
+
+.shelfmark-add-cover {
+  width: 90px;
+  border-radius: var(--radius-s);
+  box-shadow: var(--shadow-s);
+}
+
+.shelfmark-add-desc {
+  font-size: var(--font-ui-small);
+  color: var(--text-muted);
+}
+
+/* ---------- Progress and yearly goal ---------- */
+.shelfmark-progress-track {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--background-modifier-border);
+  overflow: hidden;
+}
+
+.shelfmark-progress-fill {
+  height: 100%;
+  background: var(--interactive-accent);
+  border-radius: 3px;
+}
+
+.shelfmark-cover-progress {
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.shelfmark-goal {
+  margin-bottom: var(--size-4-3);
+}
+
+.shelfmark-goal-box {
+  padding: var(--size-4-2) var(--size-4-3);
+  border-radius: var(--radius-m);
+  background: var(--background-secondary);
+  cursor: pointer;
+}
+
+.shelfmark-goal-head {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--size-4-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--size-4-2);
+  font-size: var(--font-ui-small);
+}
+
+.shelfmark-goal-title {
+  font-weight: var(--font-semibold);
+}
+
+.shelfmark-goal-pace {
+  color: var(--text-muted);
+}
+
+.shelfmark-goal-set {
+  font-size: var(--font-ui-small);
+  box-shadow: none;
+  background: transparent;
+  color: var(--text-muted);
+  padding-left: 0;
+}
+
+.shelfmark-confirm-list {
+  max-height: 40vh;
+  overflow-y: auto;
+  font-size: var(--font-ui-small);
+  color: var(--text-muted);
+}
+
+/* ---------- Panel in the book note ---------- */
+.shelfmark-panel {
+  display: flex;
+  gap: var(--size-4-4);
+  align-items: flex-start;
+  padding: var(--size-4-3);
+  margin: var(--size-4-2) 0;
+  border-radius: var(--radius-l);
+  background: var(--background-secondary);
+}
+
+.shelfmark-panel-empty {
+  color: var(--text-muted);
+  font-size: var(--font-ui-small);
+}
+
+.shelfmark-panel-cover {
+  flex: 0 0 110px;
+  aspect-ratio: 2 / 3;
+  border-radius: var(--radius-s);
+  overflow: hidden;
+  box-shadow: var(--shadow-s);
+  background: var(--background-modifier-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+}
+
+.shelfmark-panel-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.shelfmark-panel-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4-2);
+}
+
+.shelfmark-panel-title {
+  font-size: var(--font-ui-large);
+  font-weight: var(--font-bold);
+  line-height: 1.25;
+}
+
+.shelfmark-panel-author {
+  color: var(--text-muted);
+  margin-top: calc(var(--size-4-1) * -1);
+}
+
+.shelfmark-panel-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--size-4-3);
+}
+
+.shelfmark-status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--size-2-2);
+  border-radius: var(--radius-l);
+  font-size: var(--font-ui-small);
+  padding: var(--size-2-2) var(--size-4-3);
+}
+
+.shelfmark-status-chip svg {
+  width: 14px;
+  height: 14px;
+}
+
+.shelfmark-status-chip[data-status="reading"] { color: var(--color-blue); }
+.shelfmark-status-chip[data-status="read"] { color: var(--color-green); }
+.shelfmark-status-chip[data-status="to read"] { color: var(--color-orange); }
+.shelfmark-status-chip[data-status="abandoned"] { color: var(--color-red); }
+
+.shelfmark-chevron {
+  opacity: 0.6;
+}
+
+.shelfmark-panel-stars {
+  font-size: 1.3em;
+  color: var(--color-yellow);
+  cursor: pointer;
+  user-select: none;
+  letter-spacing: 2px;
+}
+
+.shelfmark-panel-progress {
+  display: flex;
+  align-items: center;
+  gap: var(--size-4-2);
+}
+
+.shelfmark-panel-progress .shelfmark-progress-track {
+  flex: 1;
+}
+
+.shelfmark-panel-pages {
+  font-size: var(--font-ui-smaller);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.shelfmark-panel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-4-2);
+}
+
+.shelfmark-panel-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--size-2-2);
+  font-size: var(--font-ui-small);
+}
+
+.shelfmark-panel-btn svg {
+  width: 15px;
+  height: 15px;
+}
+
+.is-mobile .shelfmark-panel-cover {
+  flex-basis: 90px;
+}
+
+.is-mobile .shelfmark-panel-btn {
+  padding: var(--size-4-2) var(--size-4-3);
+}
+
+/* ---------- Reading now ---------- */
+.shelfmark-section-title {
+  font-size: var(--font-ui-small);
+  font-weight: var(--font-semibold);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: var(--size-4-2);
+}
+
+.shelfmark-reading {
+  margin-bottom: var(--size-4-4);
+}
+
+.shelfmark-reading-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: var(--size-4-3);
+}
+
+.is-mobile .shelfmark-reading-list {
+  grid-template-columns: 1fr;
+}
+
+.shelfmark-reading-item {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: var(--size-4-2) var(--size-4-3);
+  padding: var(--size-4-3);
+  border-radius: var(--radius-m);
+  background: var(--background-secondary);
+  container-type: inline-size;
+}
+
+.shelfmark-reading-thumb {
+  width: 64px;
+  aspect-ratio: 2 / 3;
+  align-self: start;
+  border-radius: var(--radius-s);
+  overflow: hidden;
+  background: var(--background-modifier-hover);
+  box-shadow: var(--shadow-s);
+}
+
+.shelfmark-reading-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.shelfmark-reading-info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-2-2);
+}
+
+.shelfmark-reading-info .shelfmark-card-title {
+  margin-top: 0;
+}
+
+/* Actions below, across the full card width, in equal columns. */
+.shelfmark-reading-actions {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--size-2-3);
+}
+
+.shelfmark-reading-actions .shelfmark-panel-btn {
+  justify-content: center;
+  padding: var(--size-2-3) var(--size-2-2);
+  font-size: var(--font-ui-smaller);
+  min-width: 0;
+}
+
+.shelfmark-reading-actions .shelfmark-panel-btn span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* In a narrow card (e.g. on a phone) the buttons wrap into two rows of two. */
+@container (max-width: 400px) {
+  .shelfmark-reading-actions {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---------- Quick entry ---------- */
+.shelfmark-segmented {
+  display: flex;
+  gap: var(--size-2-2);
+  margin-bottom: var(--size-4-3);
+}
+
+.shelfmark-segmented button {
+  flex: 1;
+  box-shadow: none;
+  background: var(--background-secondary);
+}
+
+.shelfmark-segmented button.is-active {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+.shelfmark-entry-text,
+.shelfmark-entry-comment {
+  width: 100%;
+  resize: vertical;
+  font-family: var(--font-text);
+}
+
+.shelfmark-entry-comment {
+  margin-top: var(--size-4-2);
+}
+
+/* Obsidian gives buttons the default cursor; plugin elements show a pointer. */
+.shelfmark-panel button,
+.shelfmark-panel-cover,
+.shelfmark-panel-stars span,
+.shelfmark-view button,
+.shelfmark-view select,
+.shelfmark-card,
+.shelfmark-more,
+.shelfmark-goal-box,
+.shelfmark-reading-thumb,
+.shelfmark-reading-info .shelfmark-card-title,
+.shelfmark-result,
+.shelfmark-segmented button {
+  cursor: pointer;
+}
+
+.shelfmark-panel-stars span:hover {
+  opacity: 0.7;
+}
+
+/* A custom callout type for thoughts: > [!thought] */
+.callout[data-callout="thought"] {
+  --callout-color: var(--callout-tip, 0, 191, 188);
+  --callout-icon: lucide-lightbulb;
+}
+
+/* ---------- Hidden properties and details ---------- */
+body:not(.shelfmark-show-props) .shelfmark-book-note .metadata-container {
+  display: none;
+}
+
+.shelfmark-panel {
+  flex-wrap: wrap;
+}
+
+.shelfmark-panel-details {
+  flex: 1 1 100%;
+  border-top: 1px solid var(--background-modifier-border);
+  padding-top: var(--size-4-2);
+}
+
+.shelfmark-panel-details summary {
+  cursor: pointer;
+  font-size: var(--font-ui-small);
+  font-weight: var(--font-semibold);
+  color: var(--text-muted);
+  user-select: none;
+}
+
+.shelfmark-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, max-content) minmax(150px, 1fr));
+  gap: var(--size-2-3) var(--size-4-4);
+  margin-top: var(--size-4-2);
+  font-size: var(--font-ui-small);
+}
+
+.shelfmark-details-label {
+  color: var(--text-muted);
+}
+
+.shelfmark-details-value {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.is-mobile .shelfmark-details-grid {
+  grid-template-columns: max-content 1fr;
+}
+
+.shelfmark-details-footer {
+  margin-top: var(--size-4-3);
+}
+
+/* ---------- Filters ---------- */
+.shelfmark-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--size-2-2);
+}
+
+.shelfmark-filter-btn svg {
+  width: 15px;
+  height: 15px;
+}
+
+.shelfmark-filter-btn.is-active {
+  color: var(--interactive-accent);
+}
+
+.shelfmark-filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: var(--size-4-3);
+  padding: var(--size-4-3);
+  margin-bottom: var(--size-4-3);
+  border-radius: var(--radius-m);
+  background: var(--background-secondary);
+}
+
+.shelfmark-filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-2-2);
+  min-width: 0;
+}
+
+.shelfmark-filter-field label {
+  font-size: var(--font-ui-smaller);
+  color: var(--text-muted);
+}
+
+.shelfmark-filter-field select {
+  width: 100%;
+}
+
+.shelfmark-filter-field select.is-set {
+  border-color: var(--interactive-accent);
+}
+
+.shelfmark-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-2-3);
+  margin-bottom: var(--size-4-3);
+}
+
+.shelfmark-chips:empty {
+  display: none;
+}
+
+.shelfmark-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--size-2-2);
+  border-radius: var(--radius-l);
+  font-size: var(--font-ui-smaller);
+  padding: var(--size-2-2) var(--size-4-2) var(--size-2-2) var(--size-4-3);
+  background: hsla(var(--interactive-accent-hsl), 0.15);
+  color: var(--text-normal);
+  box-shadow: none;
+}
+
+.shelfmark-chip-x svg {
+  width: 12px;
+  height: 12px;
+  opacity: 0.7;
+}
+
+.shelfmark-chip-clear {
+  font-size: var(--font-ui-smaller);
+  background: transparent;
+  box-shadow: none;
+  color: var(--text-muted);
+}
+
+.shelfmark-filter-btn,
+.shelfmark-chip,
+.shelfmark-chip-clear,
+.shelfmark-filter-field select {
+  cursor: pointer;
+}
+
+/* ---------- Owned / not owned ---------- */
+.shelfmark-owned-badge {
+  position: absolute;
+  top: 36px;
+  left: 6px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  box-shadow: var(--shadow-s);
+}
+
+.shelfmark-owned-badge svg {
+  width: 13px;
+  height: 13px;
+}
+
+/* Without a status, the owned badge moves to the top. */
+.shelfmark-cover:not(:has(.shelfmark-status-badge)) .shelfmark-owned-badge {
+  top: 6px;
+}
+
+.shelfmark-card.is-not-owned .shelfmark-cover img,
+.shelfmark-card.is-not-owned .shelfmark-cover.is-placeholder .shelfmark-placeholder-title {
+  filter: grayscale(0.6);
+  opacity: 0.55;
+  transition: filter 150ms ease, opacity 150ms ease;
+}
+
+.shelfmark-card.is-not-owned .shelfmark-cover {
+  outline: 1px dashed var(--background-modifier-border);
+  outline-offset: 2px;
+}
+
+.shelfmark-card.is-not-owned:hover .shelfmark-cover img {
+  filter: none;
+  opacity: 1;
+}
+
+/* ---------- Ready-made shelves ---------- */
+.shelfmark-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-4-2);
+  margin-bottom: var(--size-4-3);
+}
+
+.shelfmark-preset {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--size-2-3);
+  font-size: var(--font-ui-small);
+  border-radius: var(--radius-m);
+  box-shadow: none;
+  background: transparent;
+  border: 1px solid var(--background-modifier-border);
+  cursor: pointer;
+}
+
+.shelfmark-preset svg {
+  width: 14px;
+  height: 14px;
+}
+
+.shelfmark-preset-count {
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.shelfmark-preset.is-active {
+  border-color: var(--interactive-accent);
+  background: hsla(var(--interactive-accent-hsl), 0.12);
+  color: var(--text-normal);
+}
+
+.shelfmark-preset.is-active svg {
+  color: var(--interactive-accent);
+}
+
+/* ---------- Covers / list toggle ---------- */
+.shelfmark-mode-toggle {
+  display: inline-flex;
+  border-radius: var(--radius-s);
+  overflow: hidden;
+  border: 1px solid var(--background-modifier-border);
+}
+
+.shelfmark-mode-toggle button {
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  padding: var(--size-2-3) var(--size-4-2);
+  cursor: pointer;
+}
+
+.shelfmark-mode-toggle button.is-active {
+  background: var(--background-modifier-hover);
+  color: var(--interactive-accent);
+}
+
+.shelfmark-mode-toggle svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ---------- List view ---------- */
+.shelfmark-list {
+  display: flex;
+  flex-direction: column;
+  container-type: inline-size;
+}
+
+.shelfmark-row {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 3fr) minmax(0, 1.4fr) minmax(130px, 1.4fr) 80px minmax(0, 1fr) 90px;
+  gap: var(--size-4-3);
+  align-items: center;
+  padding: var(--size-2-3) var(--size-4-2);
+  border-bottom: 1px solid var(--background-modifier-border);
+  font-size: var(--font-ui-small);
+  cursor: pointer;
+}
+
+.shelfmark-row:not(.shelfmark-row-head):hover {
+  background: var(--background-modifier-hover);
+}
+
+.shelfmark-row-head {
+  font-size: var(--font-ui-smaller);
+  color: var(--text-muted);
+  font-weight: var(--font-semibold);
+  cursor: default;
+  position: sticky;
+  top: 0;
+  background: var(--background-primary);
+  z-index: 1;
+}
+
+.shelfmark-row-thumb {
+  width: 36px;
+  aspect-ratio: 2 / 3;
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--background-secondary);
+}
+
+.shelfmark-row-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.shelfmark-row.is-not-owned .shelfmark-row-thumb img {
+  filter: grayscale(0.6);
+  opacity: 0.55;
+}
+
+.shelfmark-row-title {
+  font-weight: var(--font-semibold);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shelfmark-row-series,
+.shelfmark-row-date {
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shelfmark-row-status,
+.shelfmark-row-owned {
+  display: flex;
+  align-items: center;
+  gap: var(--size-2-3);
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.shelfmark-row-status svg,
+.shelfmark-row-owned svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.shelfmark-row-status[data-status="reading"] svg { color: var(--color-blue); }
+.shelfmark-row-status[data-status="read"] svg { color: var(--color-green); }
+.shelfmark-row-status[data-status="to read"] svg { color: var(--color-orange); }
+.shelfmark-row-status[data-status="abandoned"] svg { color: var(--color-red); }
+
+.shelfmark-row-owned {
+  color: var(--text-muted);
+}
+
+.shelfmark-row-status-label,
+.shelfmark-row-owned span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Narrower screen: hide less important columns, and the status stays as an icon only. */
+@container (max-width: 640px) {
+  .shelfmark-row {
+    grid-template-columns: 36px minmax(0, 1fr) 28px 70px;
+  }
+  .shelfmark-row > :nth-child(3),
+  .shelfmark-row > :nth-child(6),
+  .shelfmark-row > :nth-child(7) {
+    display: none;
+  }
+  .shelfmark-row-status-label {
+    display: none;
+  }
+}
+
+/* ---------- Series ---------- */
+.shelfmark-card-series {
+  font-size: var(--font-ui-smaller);
+  color: var(--text-faint);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shelfmark-panel-series {
+  font-size: var(--font-ui-small);
+  color: var(--text-accent);
+  cursor: pointer;
+  margin-top: calc(var(--size-4-1) * -1);
+}
+
+.shelfmark-panel-series:hover {
+  text-decoration: underline;
+}
+
+.shelfmark-panel-volumes {
+  flex: 1 1 100%;
+  border-top: 1px solid var(--background-modifier-border);
+  padding-top: var(--size-4-2);
+}
+
+.shelfmark-volumes-title {
+  font-size: var(--font-ui-small);
+  font-weight: var(--font-semibold);
+  color: var(--text-muted);
+  margin-bottom: var(--size-4-2);
+}
+
+.shelfmark-volumes-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-2-3);
+}
+
+.shelfmark-volume {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--size-2-3);
+  max-width: 100%;
+  padding: var(--size-2-2) var(--size-4-2);
+  border-radius: var(--radius-m);
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  font-size: var(--font-ui-smaller);
+  cursor: pointer;
+}
+
+.shelfmark-volume.is-current {
+  border-color: var(--interactive-accent);
+  cursor: default;
+}
+
+.shelfmark-volume.is-not-owned {
+  border-style: dashed;
+  color: var(--text-muted);
+}
+
+.shelfmark-volume-num {
+  font-weight: var(--font-bold);
+  font-variant-numeric: tabular-nums;
+}
+
+.shelfmark-volume-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 180px;
+}
+
+.shelfmark-volume-icon svg {
+  width: 12px;
+  height: 12px;
+  color: var(--color-green);
+}
+
+.shelfmark-volumes-missing {
+  margin-top: var(--size-4-2);
+  font-size: var(--font-ui-smaller);
+  color: var(--color-orange);
+}
+
+/* ---------- Favorites (heart) ---------- */
+.shelfmark-heart,
+.shelfmark-card-heart {
+  color: var(--text-faint);
+  cursor: pointer;
+}
+
+.shelfmark-heart {
+  background: transparent;
+  box-shadow: none;
+  padding: var(--size-2-2);
+}
+
+.shelfmark-heart svg {
+  width: 22px;
+  height: 22px;
+}
+
+.shelfmark-heart.is-active,
+.shelfmark-card-heart.is-active,
+.shelfmark-row-heart {
+  color: var(--color-red);
+}
+
+.shelfmark-heart.is-active svg,
+.shelfmark-card-heart.is-active svg,
+.shelfmark-row-heart svg {
+  fill: currentColor;
+}
+
+.shelfmark-card-heart {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background-primary);
+  box-shadow: var(--shadow-s);
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+
+.shelfmark-card-heart svg {
+  width: 15px;
+  height: 15px;
+}
+
+/* The empty heart only on hover; favorites are always visible. */
+.shelfmark-card:hover .shelfmark-card-heart,
+.shelfmark-card-heart.is-active,
+.is-mobile .shelfmark-card-heart.is-active {
+  opacity: 1;
+}
+
+/* The progress bar doesn't run under the heart. */
+.shelfmark-cover:has(.shelfmark-card-heart.is-active) .shelfmark-cover-progress {
+  right: 40px;
+}
+
+.shelfmark-row-heart svg {
+  width: 12px;
+  height: 12px;
+  margin-right: var(--size-2-2);
+  vertical-align: -1px;
+}
+
+/* ---------- Queue in the panel ---------- */
+.shelfmark-queue-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--size-2-2);
+  font-size: var(--font-ui-smaller);
+  border-radius: var(--radius-l);
+  background: transparent;
+  border: 1px solid var(--background-modifier-border);
+  box-shadow: none;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.shelfmark-queue-chip svg {
+  width: 13px;
+  height: 13px;
+}
+
+.shelfmark-queue-chip.is-active {
+  border-color: var(--interactive-accent);
+  color: var(--text-accent);
+}
+
+/* ---------- Wishlist ---------- */
+.shelfmark-panel-wish {
+  flex: 1 1 100%;
+  border-top: 1px solid var(--background-modifier-border);
+  padding-top: var(--size-4-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4-2);
+}
+
+.shelfmark-wish-head {
+  display: flex;
+  align-items: center;
+  gap: var(--size-2-3);
+}
+
+.shelfmark-wish-head .shelfmark-volumes-title {
+  margin: 0;
+}
+
+.shelfmark-wish-icon svg {
+  width: 15px;
+  height: 15px;
+  color: var(--interactive-accent);
+}
+
+.shelfmark-wish-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-2-3);
+}
+
+.shelfmark-wish-tag {
+  font-size: var(--font-ui-smaller);
+  padding: var(--size-2-1, 2px) var(--size-4-2);
+  border-radius: var(--radius-l);
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+}
+
+.shelfmark-wish-tag.is-gift {
+  border-color: var(--interactive-accent);
+}
+
+.shelfmark-card-wish {
+  font-size: var(--font-ui-smaller);
+  color: var(--text-accent);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---------- Queue in the library ---------- */
+.shelfmark-queue {
+  margin-bottom: var(--size-4-4);
+}
+
+.shelfmark-queue.is-empty {
+  margin-bottom: var(--size-4-2);
+}
+
+.shelfmark-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--size-4-2);
+  margin-bottom: var(--size-4-1);
+}
+
+.shelfmark-section-head .shelfmark-section-title {
+  margin-bottom: 0;
+}
+
+/* A small button in the section header, styled like the action buttons. */
+.shelfmark-view .shelfmark-section-btn {
+  font-size: var(--font-ui-smaller);
+  padding: var(--size-2-2) var(--size-4-2);
+  height: auto;
+}
+
+.shelfmark-view .shelfmark-section-btn svg {
+  width: 13px;
+  height: 13px;
+}
+
+.shelfmark-queue-strip {
+  display: flex;
+  gap: var(--size-4-3);
+  overflow-x: auto;
+  /* Room for the numbers sticking out of the cover, otherwise the scrolling strip clips them. */
+  padding: var(--size-4-2) 0 var(--size-4-2) var(--size-4-2);
+}
+
+.shelfmark-queue-item {
+  position: relative;
+  flex: 0 0 72px;
+  cursor: pointer;
+}
+
+.shelfmark-queue-cover {
+  aspect-ratio: 2 / 3;
+  border-radius: var(--radius-s);
+  overflow: hidden;
+  background: var(--background-secondary);
+  box-shadow: var(--shadow-s);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.shelfmark-queue-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.shelfmark-queue-cover .shelfmark-placeholder-title {
+  font-size: 10px;
+  padding: 4px;
+}
+
+.shelfmark-queue-num {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 4px;
+  border-radius: 11px;
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  font-size: 12px;
+  font-weight: var(--font-bold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-s);
+}
+
+.shelfmark-queue-more {
+  flex: 0 0 48px;
+  align-self: center;
+  text-align: center;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+/* ---------- Queue dialog ---------- */
+.shelfmark-queue-list {
+  display: flex;
+  flex-direction: column;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.is-mobile .shelfmark-queue-list {
+  max-height: none;
+}
+
+.shelfmark-queue-row {
+  display: grid;
+  grid-template-columns: 18px 24px 36px minmax(0, 1fr) auto;
+  gap: var(--size-4-2);
+  align-items: center;
+  padding: var(--size-2-3) var(--size-4-1);
+  border-bottom: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+}
+
+.shelfmark-queue-row.is-dragging {
+  opacity: 0.4;
+}
+
+.shelfmark-queue-row.is-drop-target {
+  box-shadow: inset 0 2px 0 var(--interactive-accent);
+}
+
+.shelfmark-queue-grip {
+  color: var(--text-faint);
+  cursor: grab;
+}
+
+.is-mobile .shelfmark-queue-grip {
+  display: none;
+}
+
+.shelfmark-queue-grip svg {
+  width: 16px;
+  height: 16px;
+}
+
+.shelfmark-queue-pos {
+  font-weight: var(--font-bold);
+  color: var(--text-accent);
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.shelfmark-queue-tools {
+  display: flex;
+  gap: 2px;
+}
+
+.shelfmark-queue-tools button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.shelfmark-queue-footer {
+  margin-top: var(--size-4-3);
+}
+
+/* ---------- For you (AI suggestions) ---------- */
+.shelfmark-suggest {
+  margin-bottom: var(--size-4-4);
+}
+
+.shelfmark-suggest:empty {
+  display: none;
+}
+
+.shelfmark-section-tools {
+  display: flex;
+  gap: var(--size-4-1);
+}
+
+.shelfmark-suggest-status {
+  font-size: var(--font-ui-small);
+  color: var(--text-muted);
+  margin: var(--size-4-1) 0 var(--size-4-2);
+}
+
+.shelfmark-suggest-strip {
+  display: flex;
+  gap: var(--size-4-3);
+  overflow-x: auto;
+  padding: var(--size-4-2) 0;
+}
+
+.shelfmark-suggest-card {
+  flex: 0 0 280px;
+  display: flex;
+  gap: var(--size-4-3);
+  padding: var(--size-4-2);
+  border-radius: var(--radius-m);
+  background: var(--background-secondary);
+}
+
+.shelfmark-suggest-cover {
+  position: relative;
+  flex: 0 0 72px;
+  align-self: flex-start;
+  aspect-ratio: 2 / 3;
+  border-radius: var(--radius-s);
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--background-modifier-hover), var(--background-secondary-alt));
+  box-shadow: var(--shadow-s);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shelfmark-suggest-cover img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.shelfmark-suggest-cover .shelfmark-placeholder-title {
+  font-size: 10px;
+  padding: 4px;
+}
+
+.shelfmark-suggest-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.shelfmark-suggest-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-4-1);
+  margin: 2px 0;
+}
+
+.shelfmark-suggest-kind,
+.shelfmark-suggest-unverified {
+  font-size: var(--font-ui-smaller);
+  padding: 0 var(--size-4-1);
+  border-radius: var(--radius-s);
+  background: var(--background-modifier-hover);
+  color: var(--text-muted);
+}
+
+.shelfmark-suggest-kind.is-odkrycie {
+  background: hsla(var(--interactive-accent-hsl), 0.15);
+  color: var(--text-accent);
+}
+
+.shelfmark-suggest-unverified {
+  color: var(--text-warning);
+}
+
+.shelfmark-suggest-reason {
+  font-size: var(--font-ui-small);
+  color: var(--text-normal);
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.shelfmark-suggest-actions {
+  display: flex;
+  gap: var(--size-4-1);
+  margin-top: auto;
+  padding-top: var(--size-4-1);
+}
+
+.shelfmark-view .shelfmark-suggest-actions .shelfmark-panel-btn {
+  font-size: var(--font-ui-smaller);
+  padding: var(--size-2-2) var(--size-4-2);
+  height: auto;
+}
+
+.is-mobile .shelfmark-suggest-card {
+  flex-basis: 250px;
+}
+
+/* ---------- What next? / Tidy up genres ---------- */
+.shelfmark-pick-moods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-4-1);
+  margin-bottom: var(--size-4-2);
+}
+
+.shelfmark-pick-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--size-4-3);
+  margin: var(--size-4-2) 0;
+}
+
+.shelfmark-pick-bar .shelfmark-suggest-status {
+  margin: 0;
+}
+
+.shelfmark-pick-results {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4-2);
+}
+
+.shelfmark-pick-row {
+  display: flex;
+  gap: var(--size-4-3);
+  padding: var(--size-4-2);
+  border-radius: var(--radius-m);
+  background: var(--background-secondary);
+}
+
+.shelfmark-pick-reason {
+  font-size: var(--font-ui-small);
+  margin-top: var(--size-4-1);
+}
+
+.shelfmark-pick-row .shelfmark-suggest-actions {
+  flex-wrap: wrap;
+}
+
+.shelfmark-genres-vocab {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-4-1);
+  margin-bottom: var(--size-4-3);
+}
+
+.shelfmark-genres-list {
+  display: flex;
+  flex-direction: column;
+  max-height: 55vh;
+  overflow-y: auto;
+}
+
+.shelfmark-genres-row {
+  padding: var(--size-4-2) 0;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.shelfmark-genres-option {
+  display: flex;
+  align-items: center;
+  gap: var(--size-4-2);
+  font-size: var(--font-ui-small);
+  margin-top: var(--size-4-1);
+  cursor: pointer;
+}
+
+.shelfmark-genres-option > span {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--size-4-1);
+}
+
+.shelfmark-genres-before {
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.shelfmark-genres-arrow svg {
+  width: 12px;
+  height: 12px;
+  color: var(--text-faint);
+}
+
+.shelfmark-view .shelfmark-filters-genres {
+  align-self: end;
+  justify-self: start;
+}
+
+.shelfmark-review-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--size-4-2);
+  cursor: pointer;
+}
+
+.shelfmark-review-row input {
+  margin-top: 3px;
+}
+
+.shelfmark-review-item {
+  min-width: 0;
+}
+
+.shelfmark-recap-body {
+  max-height: 60vh;
+  overflow-y: auto;
+  font-size: var(--font-ui-medium);
+}
+
+.shelfmark-recap-body h3 {
+  font-size: var(--font-ui-medium);
+  margin: var(--size-4-3) 0 var(--size-4-1);
+}
+
+.shelfmark-panel-volumes .shelfmark-panel-actions {
+  margin-top: var(--size-4-2);
+}
+
+/* ---------- Loans ---------- */
+.shelfmark-loans {
+  margin-bottom: var(--size-4-4);
+}
+
+.shelfmark-loans:empty {
+  display: none;
+}
+
+.shelfmark-loans-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4-1);
+}
+
+.shelfmark-loan-row {
+  display: flex;
+  align-items: center;
+  gap: var(--size-4-3);
+  padding: var(--size-4-2) var(--size-4-3);
+  border-radius: var(--radius-m);
+  background: var(--background-secondary);
+}
+
+.shelfmark-loan-row .shelfmark-card-title {
+  cursor: pointer;
+}
+
+.shelfmark-loan-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.shelfmark-loan-icon {
+  display: flex;
+  color: var(--text-muted);
+}
+
+.shelfmark-loan-row.is-overdue .shelfmark-loan-icon,
+.shelfmark-loan-warning {
+  color: var(--text-warning);
+}
+
+.shelfmark-loan-warning {
+  font-size: var(--font-ui-smaller);
+}
+
+.shelfmark-loan-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 6px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background-primary);
+  color: var(--text-normal);
+  box-shadow: var(--shadow-s);
+}
+
+.shelfmark-loan-badge svg {
+  width: 14px;
+  height: 14px;
+}
+
+.shelfmark-panel-loan {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--size-4-2);
+  padding: var(--size-4-2) var(--size-4-3);
+  margin-top: var(--size-4-3);
+  border-radius: var(--radius-m);
+  background: var(--background-secondary);
+  font-size: var(--font-ui-small);
+}
+
+.shelfmark-panel-loan-text {
+  flex: 1;
+}
+
+.shelfmark-panel-loan.is-overdue .shelfmark-loan-icon {
+  color: var(--text-warning);
+}
+
+/* ---------- Stats ---------- */
+.shelfmark-stats {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.shelfmark-stats-years {
+  flex-wrap: wrap;
+}
+
+.shelfmark-stats-years button {
+  flex: 0 0 auto;
+}
+
+.shelfmark-stats-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--size-4-3);
+  margin-bottom: var(--size-4-4);
+}
+
+.shelfmark-stats-tile,
+.shelfmark-stats-card {
+  padding: var(--size-4-3);
+  border-radius: var(--radius-m);
+  background: var(--background-secondary);
+}
+
+.shelfmark-stats-tile-value {
+  font-size: 1.8em;
+  font-weight: var(--font-bold);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.shelfmark-stats-tile-label {
+  font-size: var(--font-ui-small);
+  color: var(--text-muted);
+}
+
+.shelfmark-stats-tile-note {
+  font-size: var(--font-ui-smaller);
+  color: var(--text-faint);
+  margin-top: 2px;
+}
+
+.shelfmark-stats-card {
+  margin-bottom: var(--size-4-4);
+}
+
+.shelfmark-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--size-4-4);
+}
+
+.shelfmark-stats-grid .shelfmark-stats-card {
+  margin-bottom: 0;
+}
+
+.shelfmark-stats-grid + * {
+  margin-top: var(--size-4-4);
+}
+
+/* Vertical bars: thin, rounded only at the data end, 2px apart. */
+.shelfmark-stats-columns,
+.shelfmark-stats-column-labels {
+  display: flex;
+  gap: 2px;
+}
+
+.shelfmark-stats-columns {
+  height: 160px;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.shelfmark-stats-column {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.shelfmark-stats-column.is-clickable {
+  cursor: pointer;
+}
+
+.shelfmark-stats-column-fill {
+  width: min(100%, 28px);
+  border-radius: 4px 4px 0 0;
+  background: var(--interactive-accent);
+  transition: opacity 0.15s;
+}
+
+.shelfmark-stats-column:hover .shelfmark-stats-column-fill,
+.shelfmark-stats-bar:hover .shelfmark-stats-bar-fill {
+  opacity: 0.75;
+}
+
+.shelfmark-stats-column-fill.is-zero {
+  display: none;
+}
+
+.shelfmark-stats-column-value {
+  font-size: var(--font-ui-smaller);
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 2px;
+}
+
+.shelfmark-stats-column-label {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--font-ui-smaller);
+  color: var(--text-muted);
+  text-align: center;
+  padding-top: var(--size-4-1);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Horizontal bars in rankings. */
+.shelfmark-stats-bar {
+  display: grid;
+  grid-template-columns: minmax(80px, 38%) 1fr 2.5em;
+  align-items: center;
+  gap: var(--size-4-2);
+  padding: 3px 0;
+  cursor: pointer;
+  border-radius: var(--radius-s);
+}
+
+.shelfmark-stats-bar:hover {
+  background: var(--background-modifier-hover);
+}
+
+.shelfmark-stats-bar-label {
+  font-size: var(--font-ui-small);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shelfmark-stats-bar-track {
+  height: 10px;
+}
+
+.shelfmark-stats-bar-fill {
+  height: 100%;
+  min-width: 4px;
+  border-radius: 0 4px 4px 0;
+  background: var(--interactive-accent);
+  transition: opacity 0.15s;
+}
+
+.shelfmark-stats-bar-fill.is-zero {
+  display: none;
+}
+
+.shelfmark-stats-bar-value {
+  font-size: var(--font-ui-small);
+  color: var(--text-muted);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.shelfmark-stats-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--size-4-3);
+}
+
+.shelfmark-stats-highlight {
+  display: flex;
+  gap: var(--size-4-3);
+  align-items: center;
+  cursor: pointer;
+}
+
+.shelfmark-stats-cover {
+  flex: 0 0 48px;
+  width: 48px;
+}
+
+.shelfmark-queue-item .shelfmark-stats-cover {
+  width: 72px;
+}
+
+/* ---------- Read dates ---------- */
+.shelfmark-read-date-details {
+  padding-left: var(--size-4-4);
+  border-left: 2px solid var(--background-modifier-border);
+}
+
+.shelfmark-dates-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--size-4-3);
+  margin-bottom: var(--size-4-2);
+}
+
+.shelfmark-dates-bar input[type="search"] {
+  flex: 1;
+  min-width: 160px;
+}
+
+.shelfmark-dates-row {
+  display: flex;
+  align-items: center;
+  gap: var(--size-4-2);
+  padding: var(--size-4-1) 0;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.shelfmark-dates-row .shelfmark-row-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.shelfmark-dates-year {
+  width: 5.5em;
+}
+
+.shelfmark-dates-year.is-invalid {
+  border-color: var(--text-error);
+}
+
+.shelfmark-dates-month {
+  width: 8.5em;
+}
+
+.is-mobile .shelfmark-dates-row {
+  flex-wrap: wrap;
+}
+
+.shelfmark-stats-undated,
+.shelfmark-stats-help {
+  font-size: var(--font-ui-smaller);
+  color: var(--text-muted);
+  margin-bottom: var(--size-4-2);
+}
+
+.shelfmark-stats-help {
+  margin: calc(-1 * var(--size-4-1)) 0 var(--size-4-3);
+}
