@@ -2,6 +2,8 @@
 
 A personal library for [Obsidian](https://obsidian.md). Every book is a plain Markdown note with its data in properties, and covers are saved in the vault, so the library syncs with the rest of your notes and works offline on desktop and mobile.
 
+![Library view with the reading goal, current book, reading queue and suggestions](docs/screenshots/library.png)
+
 ## Features
 
 - **Add books** by title, author or ISBN from Open Library, Google Books (with an API key) and, optionally, the National Library of Poland. Covers are downloaded into the vault; you can also use your own photo or paste an image.
@@ -11,6 +13,15 @@ A personal library for [Obsidian](https://obsidian.md). Every book is a plain Ma
 - **Loans** in both directions, with reminders when a book is overdue or has been away for a long time.
 - **Wishlist** with priority, price, shop link and gift ideas, exportable to a note you can share or print.
 - **Reading stats** per year or for all time: books and pages per month, authors, genres, ratings, formats and highlights.
+
+### Screenshots
+
+| | |
+| --- | --- |
+| ![Library grid with status tabs and shelves](docs/screenshots/library-grid.png) | ![Book panel at the top of a book note](docs/screenshots/book-panel.png) |
+| Library grid with shelves and status tabs | Book panel in a book note |
+| ![Reading stats for a year](docs/screenshots/stats.png) | ![Adding a note, quote or thought](docs/screenshots/quick-note.png) |
+| Reading stats | Quick note, quote or thought |
 
 ### Optional: Claude Code
 
