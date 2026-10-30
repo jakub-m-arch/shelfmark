@@ -407,6 +407,15 @@ export default class ShelfmarkPlugin extends Plugin {
         .setIcon(book.owned ? "package-minus" : "package-check")
         .onClick(() => this.setOwned(book.file, !book.owned))
     );
+    // Clicking the current format again clears it.
+    for (const format of FORMATS) {
+      menu.addItem((item) =>
+        item
+          .setTitle(`Format: ${format}`)
+          .setChecked(book.format === format)
+          .onClick(() => this.setFormat(book.file, book.format === format ? null : format))
+      );
+    }
     const loan = bookLoan(book);
     if (loan) {
       menu.addItem((item) =>
@@ -725,6 +734,12 @@ export default class ShelfmarkPlugin extends Plugin {
   async setOwned(file: TFile, owned: boolean): Promise<void> {
     await this.app.fileManager.processFrontMatter(file, (fm) => {
       fm.owned = owned;
+    });
+  }
+
+  async setFormat(file: TFile, format: string | null): Promise<void> {
+    await this.app.fileManager.processFrontMatter(file, (fm) => {
+      fm.format = format;
     });
   }
 }
